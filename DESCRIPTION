@@ -1,0 +1,13 @@
+Package: TaSTY
+Type: Package
+Title: Finds Activated Paths in Phosphoproteomics Data
+Version: 0.1.0
+Author: Alex Root
+Maintainer: Alex Root <alex.roy.root@gmail.com>
+Description: The input files are a table of paths, a table of transcription factors and targets, 
+  experimental data (phosphoproteomics: 2 columns: HGNCsymbol_psite, log2ratio), (proteomics: 2 columns: HGNCsymbol, log2ratio),
+  (transcriptomics: 2 columns: HGNCsymbol, log2ratio)
+License: MIT License
+Encoding: UTF-8
+LazyData: false
+Depends: data.table
