@@ -5,20 +5,25 @@
 %%  ~~function to find activated paths from receptor kinases to transcription factors ~~
 }
 \description{
-  ~~ The function takes several inputs: (1) a table to paths from receptors to transcription factors;
- (2) a table of transcription factors and their target genes
- (3) experimental data of phosphoproteomics ratios between 2 experimental conditions ~~
- (4) experimental data of proteomics ratios between 2 experimental conditions
- (5) experimental data of transcriptomics ratios between 2 experimental conditions
+  ~~ The function takes several inputs: (1) a table of paths from receptors to transcription factors (pdb);
+ (2) a table of transcription factors and their target genes (tdb)
+ (3) experimental data table of phosphoproteomics ratios between 2 experimental conditions (sty) ~~
+ (4) experimental data table of proteomics ratios between 2 experimental conditions (pro)
+ (5) a constant for the weight of the proteomics data
+ (6) a constant for the weight of the phosphoproteomics data
+ (7) a constant for the weight of the transcription factor targets
+ (8) a cutoff for the percentage of a pathway that must be detected
+ (9) the number of permutations to perform
 }
 \usage{
-scorePaths()
+scorePaths(pdb, tdb, pro,sty, c_pro, c_sty, c_tdb, detectionCutoff, nPerms)
 }
 %- maybe also 'usage' for other objects documented here.
-\details{
-%%  ~~ If necessary, more details than the description above ~~
+\details{The function may run very slowly for large datasets with many permutations. Note: the table of paths and the table with transcription factor targets must be wrangled first. The experimental data (proteomics and phosphoproteomics are 3 column dataframes with the column names: gene, norm, norm.sd. The gene column must be valid HGNC symbols. The norm represent the intensity and are typically log2 ratios of two conditions, averaged across biological and techincal replicates. The norm.sd is the standard deviation of these values.
+
+The paths table database (pdb) is a dataframe consisting of 14 columns (Node1, Node2, Node3, Node4, Node5, Node6, pathLength, Gene2, Gene3, Gene4, Gene5, Gene6, TF, pTF))
 }
-\value{
+\value{The function returns a data frame with paths, their score, and statistical significance.
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}

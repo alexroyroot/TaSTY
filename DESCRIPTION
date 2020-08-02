@@ -10,4 +10,4 @@ Description: The input files are a table of paths, a table of transcription fact
 License: MIT License
 Encoding: UTF-8
 LazyData: false
-Depends: data.table
+Depends: data.table, plyr, tidyr
